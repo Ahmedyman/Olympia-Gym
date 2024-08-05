@@ -12,10 +12,10 @@ function Header(props) {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center justify-center gap-2">
-        <p className="text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-400">
+        <p className="text-3xl sm:text-4xl md:text-5xl font-semibold text-blue-500">
           {index}
         </p>
-        <h4 className="text-xl sm:text-2xl md:text-3xl">{title}</h4>
+        <h4 className="text-xl sm:text-2xl md:text-2xl">{title}</h4>
       </div>
       <p className="text-sm sm:text-base mx-auto">{description}</p>
     </div>
@@ -35,7 +35,7 @@ export default function Generator(props) {
     updateWorkout,
   } = props;
   const [showModel, setShowModel] = useState(false);
-  window.location.href='#accept'
+  // window.location.href='#accept'
 
 
   function musclesUpdate(musclesGp) {
@@ -89,8 +89,8 @@ export default function Generator(props) {
             }}
             key={typeIndex}
             className={
-              "bg-slate-950 border border-blue-400 py-4 rounded-lg duration-200 hover:border-blue-600 " +
-              (type === poison ? "border-blue-600 " : "border-blue-400 ")
+              "bg-slate-950 border border-blue-400 py-4 rounded-lg duration-200 hover:border-red-600 " +
+              (type === poison ? "border-red-600 " : "border-blue-400 ")
             }
           >
             <p className="text-center capitalize">{type.replaceAll("_", " ")}</p>
@@ -108,7 +108,7 @@ export default function Generator(props) {
           className="relative p-3 flex items-center justify-center"
         >
           <p className="capitalize">
-            {muscles.length == 0 ? "Select muscle groups" : muscles.join(",")}
+            {muscles.length == 0 ? "Select muscle groups" : muscles.join("&")}
           </p>
           <i className="fa-solid absolute right-3 top-1/2 -translate-y-1/2 fa-caret-down"></i>
         </button>
@@ -122,8 +122,8 @@ export default function Generator(props) {
                 onClick={() => musclesUpdate(musclesGp)}
                 key={musclesIndex}
                 className={
-                  "hover:text-blue-400 duration-200 " +
-                  (muscles.includes(musclesGp) ? "text-blue-400" : " ")
+                  "hover:text-red-600 duration-200 " +
+                  (muscles.includes(musclesGp) ? "text-red-400" : " ")
                 }
               >
                 <p className="uppercase">{musclesGp.replaceAll("_", " ")}</p>
@@ -143,8 +143,8 @@ export default function Generator(props) {
             key={schemeIndex}
             onClick={() => setGoals(scheme)}
             className={
-              "bg-slate-950 border border-blue-400 py-4 rounded-lg duration-200 hover:border-blue-600 " +
-              (scheme === goal ? "border-blue-600" : "border-blue-400")
+              "bg-slate-950 border border-blue-600 py-4 rounded-lg duration-200 hover:border-red-600 " +
+              (scheme === goal ? "border-red-600" : "border-blue-400")
             }
           >
             <p className="text-center capitalize">{scheme.replaceAll("_", " ")}</p>

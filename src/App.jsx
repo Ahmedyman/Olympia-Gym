@@ -5,12 +5,15 @@ import Hero from './components/Hero';
 import Generator from './components/Generator';
 import Workout from './components/Workout';
 import { generateWorkout } from './utils/functions.js';
+// import Preloader from './preloder.jsx';
+
 
 function App() {
   const [workout, setWorkout] = useState(null);
   const [poison, setPoison] = useState("individual");
   const [muscles, setMuscles] = useState([]);
   const [goal, setGoals] = useState("strengthPower");
+  // <Preloader/>
 
   function updateWorkout() {
     if (muscles.length < 1) {
@@ -23,7 +26,7 @@ function App() {
   }
 
   return (
-    <main className='min-h-screen flex flex-col bg-gradient-to-r from-slate-800 to-slate-950 text-white text-sm sm:text-base'>
+    <main className='min-h-screen flex flex-col bg-gradient-to-r from-slate-800 to-slate-900 text-white text-sm sm:text-base'>
       <Hero  />
       
       <Generator
